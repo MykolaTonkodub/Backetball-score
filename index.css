@@ -34,7 +34,7 @@ body {
 box-sizing: border-box;
 }
 
-#bonus-point {
+.bonus-point {
 
     border: 2px solid rgb(207, 207, 207);
     border-radius: 5px;
@@ -47,7 +47,7 @@ box-sizing: border-box;
     font-family: 'Seven Segment', sans-serif;
 }
 
-#score-1, #score-2 {
+#home-score, #guest-score {
 
     background: rgb(12, 12, 12);
     width: 100px;

@@ -1,65 +1,48 @@
 let homeTotalScore = 0
 let guestTotalScore = 0
-let Homescore = document.getElementById("score-1")
-let Guestscore = document.getElementById("score-2")
+const homeScore = document.getElementById("home-score")
+const guestScore = document.getElementById("guest-score")
+const homeBonus1 = document.getElementById("home-bonus-point1")
+const homeBonus2 = document.getElementById("home-bonus-point2")
+const homeBonus3 = document.getElementById("home-bonus-point3")
+const guestBonus1 = document.getElementById("guest-bonus-point1")
+const guestBonus2 = document.getElementById("guest-bonus-point2")
+const guestBonus3 = document.getElementById("guest-bonus-point3")
 
 
 //Home
-function homeBonus1() {
-
-    homeTotalScore += 1
-    Homescore.textContent = homeTotalScore
-console.log(homeTotalScore)
-}
-
-function homeBonus2() {
-
-    homeTotalScore += 2
-    Homescore.textContent = homeTotalScore
-console.log(homeTotalScore)
-}
-
-function homeBonus3() {
-
-    homeTotalScore += 3
-    Homescore.textContent = homeTotalScore
-console.log(homeTotalScore)
-}
+function addHomeScore(points){
+homeTotalScore += points
+homeScore.textContent = homeTotalScore
+} 
+homeBonus1.addEventListener("click", () => addHomeScore(1))
+homeBonus2.addEventListener("click", () => addHomeScore(2))
+homeBonus3.addEventListener("click", () => addHomeScore(3))
 
 
-//Guest
-function GuestBonus1() {
-
-    guestTotalScore += 1
-    Guestscore.textContent = guestTotalScore
-console.log(guestTotalScore)
-}
-
-function GuestBonus2() {
-
-    guestTotalScore += 2
-    Guestscore.textContent = guestTotalScore
-console.log(guestTotalScore)
-}
-
-function GuestBonus3() {
-
-    guestTotalScore += 3
-    Guestscore.textContent = guestTotalScore
-console.log(guestTotalScore)
-}
-
-function clearHome() {
+homeScore.addEventListener ("click", function clearHome() {
 
     homeTotalScore = 0
 
-    Homescore.textContent = homeTotalScore
-}
+    homeScore.textContent = homeTotalScore
+})
 
-function clearGuest() {
+
+
+//Guest
+function addGuestScore(points){
+guestTotalScore += points
+guestScore.textContent = guestTotalScore
+} 
+guestBonus1.addEventListener("click", () => addGuestScore(1))
+guestBonus2.addEventListener("click", () => addGuestScore(2))
+guestBonus3.addEventListener("click", () => addGuestScore(3))
+
+
+guestScore.addEventListener ("click", function clearguest() {
 
     guestTotalScore = 0
-    Guestscore.textContent = guestTotalScore
-}
+    guestScore.textContent = guestTotalScore
+})
 
 
