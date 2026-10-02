@@ -10,39 +10,33 @@ const guestBonus2 = document.getElementById("guest-bonus-point2")
 const guestBonus3 = document.getElementById("guest-bonus-point3")
 
 
-//Home
-function addHomeScore(points){
+
+function addPoints(points, team){
+if (team === "home") {
 homeTotalScore += points
 homeScore.textContent = homeTotalScore
-} 
-homeBonus1.addEventListener("click", () => addHomeScore(1))
-homeBonus2.addEventListener("click", () => addHomeScore(2))
-homeBonus3.addEventListener("click", () => addHomeScore(3))
-
-
-homeScore.addEventListener ("click", function clearHome() {
-
-    homeTotalScore = 0
-
-    homeScore.textContent = homeTotalScore
-})
-
-
-
-//Guest
-function addGuestScore(points){
+} else {
 guestTotalScore += points
 guestScore.textContent = guestTotalScore
-} 
-guestBonus1.addEventListener("click", () => addGuestScore(1))
-guestBonus2.addEventListener("click", () => addGuestScore(2))
-guestBonus3.addEventListener("click", () => addGuestScore(3))
+}
+}
+homeBonus1.addEventListener("click", () => addPoints(1, "home"))
+homeBonus2.addEventListener("click", () => addPoints(2, "home"))
+homeBonus3.addEventListener("click", () => addPoints(3, "home"))
 
+guestBonus1.addEventListener("click", () => addPoints(1, "guest"))
+guestBonus2.addEventListener("click", () => addPoints(2, "guest"))
+guestBonus3.addEventListener("click", () => addPoints(3, "guest"))
 
-guestScore.addEventListener ("click", function clearguest() {
+function clear(team) {
+    if (team === "home") {
+        homeTotalScore = 0
+        homeScore.textContent = homeTotalScore
+    } else {
+        guestTotalScore = 0
+        guestScore.textContent = guestTotalScore
+    }
+}
 
-    guestTotalScore = 0
-    guestScore.textContent = guestTotalScore
-})
-
-
+homeScore.addEventListener("dblclick", () => clear("home"))
+guestScore.addEventListener("dblclick", () => clear("guest"))
